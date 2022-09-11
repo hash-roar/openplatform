@@ -9,7 +9,7 @@ steps:
   image: alpine/git
   commands:
     - git clone https://gitclone.com/github.com/hash-roar/opeplatform.git
-    - ls
+    - ls opeplatform
     - mv opeplatform/*  ./  -f
     - ls
 
