@@ -9,11 +9,25 @@ steps:
   image: alpine/git
   commands:
     - git clone https://gitclone.com/github.com/hash-roar/opeplatform.git
+    - mv opeplatform/*  ./  -f
     - ls
 
-
-- name: greeting
-  image: alpine
+- name: deploy-prod
+  image: docker/compose:1.29.2
   commands:
-    - echo hello
-    - echo world
+    - docker-compose up -d --remove-orphans
+  depends_on:
+    - clone
+  when:
+    branch:
+      - master
+    event:
+      - push
+  volumes:
+    - name: sock
+      path: /var/run/docker.sock
+
+volumes:
+  - name: sock
+    host:
+      path: /var/run/docker.sock
