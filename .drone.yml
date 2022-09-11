@@ -9,4 +9,4 @@ steps:
   image: alpine
   commands:
     - echo hello
-    - ehco world
+    - echo world
