@@ -4,4 +4,8 @@ type: docker
 name: default
 
 steps:
-- name: 
+- name: greeting
+  image: alpine
+  commands:
+    - echo hello
+    - ehco world
