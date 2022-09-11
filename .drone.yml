@@ -5,6 +5,13 @@ name: default
 clone:
   disable: true
 steps:
+- name: clone
+  image: alpine/git
+  commands:
+    - git clone git@git.zhlh6.cn:hash-roar/opeplatform.git
+
+
+
 - name: greeting
   image: alpine
   commands:
